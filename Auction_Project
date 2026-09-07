@@ -1,5 +1,4 @@
 import art
-# TODO-1: Ask the user for input
 print(art.logo)
 def find_highest_bidder(bidding_dictionary):
     winner = ""
