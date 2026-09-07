@@ -1,0 +1,63 @@
+#Art logo
+from art import logo
+
+#dictionary to match followers to name
+import random
+from game_data import data
+accountA = random.choice(data)
+score = 0
+game_over = True
+#randomise comparison
+while game_over:
+
+    accountB = random.choice(data)
+
+    if accountA == accountB:
+        account_B = random.choice(data)
+    # Format account from the game data
+    print(logo)
+    print(f"Compare A: {accountA["name"]} , {accountA["description"]}, from {accountA["country"]} ")
+
+    print(f"Against B: {accountB["name"]} , {accountB["description"]}, from {accountB["country"]} ")
+    #comparison mechanic
+
+
+    follower_accountA = int(accountA["follower_count"])
+    follower_accountB = int(accountB["follower_count"])
+    user_response = input("Who has more followers? type 'A' or 'B':").lower()
+    if user_response == "a":
+        answer = 1
+    if user_response == "b":
+        answer = 0
+    if follower_accountA > follower_accountB:
+        correct_answer = 1
+    else:
+        correct_answer = 0
+
+    if correct_answer == answer:
+        print("Correct!")
+        points = True
+    else:
+        print("Incorrect! Game Over!")
+        game_over = False
+        points = False
+        print(f"Ended with score: {score}  points")
+    ## Use if statements to check if user is correct
+
+    #Score keeping mechanic
+
+    if points:
+        score += 1
+
+
+
+    #Loop mechanics until the user gets it wrong
+
+    ## making account at positon B and the next account at position A
+
+    if correct_answer == answer:
+        accountA = accountB
+        print("\n" * 20)
+        print(f"That's Right! Score is {score} points.")
+
+
